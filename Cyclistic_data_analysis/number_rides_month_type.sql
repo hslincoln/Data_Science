@@ -8,14 +8,14 @@ ORDER BY [ride_month], [member_casual]
 
  SELECT * 
  FROM (SELECT
-			ride_id,
+	    ride_id,
             ride_month_text,
             member_casual
         FROM [Cyclistic].[dbo].[all_data]
 	) AS t
-    PIVOT (COUNT(ride_id)
-			FOR ride_month_text IN (
-            [January],[February],[March],
-            [April],[May],[June],[July], [August],
-			[September],[October],[November],[December])
-    ) AS pvt_tbl;
+        PIVOT (COUNT(ride_id)
+	       FOR ride_month_text IN (
+               [January],[February],[March],
+               [April],[May],[June],[July], [August],
+	       [September],[October],[November],[December])
+        ) AS pvt_tbl;
